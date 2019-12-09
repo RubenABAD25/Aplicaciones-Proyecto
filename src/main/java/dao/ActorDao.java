@@ -9,7 +9,6 @@ import javax.persistence.Query;
 
 import modelo.Actor;
 
-@Stateless
 public class ActorDao 
 {
 	@Inject

@@ -13,10 +13,7 @@ import modelo.Actor;
 import negocio.ActorON;
 
 @ManagedBean
-@ViewScoped
-/**
- * Esta clase ofrece la intereccion entre Vista-negocio
- */
+
 public class AutorBean {
 	
 	//PropietiesBean
@@ -24,8 +21,6 @@ public class AutorBean {
 	private Actor ac;
 	private int id;
 	private List<Actor>actores;
-	@Inject
-	private FaceletContext fc;
 	@Inject
 	private ActorON on;
 	public String getNombre() {
@@ -97,19 +92,19 @@ public class AutorBean {
 		
 		return null;
 	}
-	public void buscar() {
-		if(id==0)
-			return;
-		System.out.println("codigo editar " + this.id);
-		ac = on.getActor(this.id);
-		
-		if(ac == null) {
-			ac = new Actor();
-			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, 
-					"Registro no existe", "InformaciÃ³n");
-			//((FaceletContext) fc).addMessage(null, msg);
-			
-		}
-	}
+//	public void buscar() {
+//		if(id==0)
+//			return;
+//		System.out.println("codigo editar " + this.id);
+//		ac = on.getActor(this.id);
+//		
+//		if(ac == null) {
+//			ac = new Actor();
+//			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, 
+//					"Registro no existe", "InformaciÃ³n");
+//			//((FaceletContext) fc).addMessage(null, msg);
+//			
+//		}
+//	}
 
 }
