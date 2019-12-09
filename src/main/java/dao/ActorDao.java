@@ -46,8 +46,8 @@ public class ActorDao
 		
 		Query q = em.createQuery(jpql, Actor.class);
 		
-		List<Actor> personas = q.getResultList();
-		return personas;
+		List<Actor> actores = q.getResultList();
+		return actores;
 	}
 	
 	public List<Actor> getPersonasPorNombre(String filtroBusqued){
@@ -57,8 +57,8 @@ public class ActorDao
 		Query q = em.createQuery(jpql, Actor.class);
 		q.setParameter("filtro", "%"+filtroBusqued+"%");
 		
-		List<Actor> personas = q.getResultList();
-		return personas;
+		List<Actor> actores = q.getResultList();
+		return actores;
 	}
 
 }

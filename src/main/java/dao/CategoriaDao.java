@@ -39,7 +39,7 @@ public class CategoriaDao {
 	}
 	
 	public List<Categoria> getCategorias(){
-		String jpql = "SELECT p FROM Actor p ";
+		String jpql = "SELECT p FROM Categoria p ";
 		
 		Query q = cm.createQuery(jpql, Categoria.class);
 		
