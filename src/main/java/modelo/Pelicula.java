@@ -1,9 +1,15 @@
 package modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -30,6 +36,23 @@ public class Pelicula {
 	@NotNull
 	@Column(name = "pel_precio")
 	private double precio;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "pel_id")
+	private List<Actor>actores;
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Actor> getActores() {
+		return actores;
+	}
+	/**
+	 * 
+	 * @param actores
+	 */
+	public void setActores(List<Actor> actores) {
+		this.actores = actores;
+	}
 	/**
 	 * 
 	 * @return

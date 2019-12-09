@@ -1,9 +1,15 @@
 package modelo;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -33,6 +39,24 @@ public class Director {
 	@NotNull
 	@Column(name = "dir_numero")
 	private int numero;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "dir_id")
+	private List<Pelicula>peliculas;
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public List<Pelicula> getPeliculas() {
+		return peliculas;
+	}
+	/**
+	 * 
+	 * @param peliculas
+	 */
+	public void setPeliculas(List<Pelicula> peliculas) {
+		this.peliculas = peliculas;
+	}
 	/**
 	 * 
 	 * @return
