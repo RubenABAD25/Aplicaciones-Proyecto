@@ -3,6 +3,7 @@ package vista;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.New;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -49,6 +50,7 @@ public class AutorBean {
 	}
 	@PostConstruct
 	public void init() {
+		ac= new Actor();
 		System.out.println("init " + ac);
 		actores = on.getListadoActores();
 	}
@@ -57,8 +59,9 @@ public class AutorBean {
 	 * Metodo de guardar Actor
 	 */
 	public String guardar() {
+		System.out.println("act " + ac);
 		try {
-			on.guardar(ac);
+			on.guardar(this.ac);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -106,5 +109,7 @@ public class AutorBean {
 //			
 //		}
 //	}
+	
+	
 
 }

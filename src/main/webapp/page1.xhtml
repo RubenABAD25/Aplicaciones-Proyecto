@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<ui:composition template="/plantilla.xhtml">
+<ui:define name="body">
+<h:form>
+<h3 style="text-align:center">
+<h:outputText value="Nombre:" />
+<h:inputText value="#{autorBean.ac.nombres}" />
+<br/>
+<h:outputText value="Apellidos:" />
+<h:inputText value="#{autorBean.ac.apellidos}" />
+<br/>
+<h:outputText value="Nacionalidad:" />
+<h:inputText value="#{autorBean.ac.nacionalidad}" />
+<br/>
+<h:outputText value="FechaN" />
+<h:inputText value="#{autorBean.ac.fechaN}" />
+<br/>
+<h:commandButton action="page2" value="Continuar" />
+<h:commandButton action="page2" value="Siguiente"/>
+<h:commandButton action="#{autorBean.guardar()}" value="Guardar" />
+</h3>
+</h:form>
+</ui:define>
+</ui:composition>
+</body> 
+</html>

@@ -23,6 +23,7 @@ public class ActorDao
 
 	
 	public void create(Actor a) {
+		System.out.println("dao " + a);
 		em.persist(a);
 	}
 	
