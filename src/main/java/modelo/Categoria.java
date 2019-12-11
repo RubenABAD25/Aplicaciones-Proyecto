@@ -93,7 +93,7 @@ public class Categoria {
 	}
 	public void agregarPeliculas(Pelicula pe)
 	{
-		if(ap == null) {
+		if(pe == null) {
 			peliculas= new ArrayList<Pelicula>();
 		}
 		this.peliculas.add(pe);

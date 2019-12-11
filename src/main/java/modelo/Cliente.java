@@ -66,7 +66,7 @@ public class Cliente {
 	}
 	public void agregarDirecciones(Direccion dir)
 	{
-		if(ap == null) {
+		if(dir == null) {
 			direcciones= new ArrayList<Direccion>();
 		}
 		this.direcciones.add(dir);
