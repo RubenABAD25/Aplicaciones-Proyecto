@@ -82,5 +82,6 @@ public class PeliculaBean
 		this.pelis=pon.getPelicula();
 		return null;
 	}
+	
 
 }

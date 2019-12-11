@@ -12,8 +12,11 @@ import modelo.Director;;
 
 @Stateless
 public class DirectorDao 
-{	@Inject
+{	
+	
+	@Inject
 	private EntityManager dm;
+
 public void create(Director c) {
 	dm.persist(c);
 }

@@ -4,7 +4,9 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.swing.JOptionPane;
 
 import modelo.Director;
 import negocio.DirectorON;
@@ -13,10 +15,14 @@ import negocio.DirectorON;
  * @author Ruben
  *
  */
-@ManagedBean
+@ManagedBean(name="directorBean")
 public class DirectorBean {
+	
 	@Inject
 	private DirectorON on;
+	
+	@Inject
+	private FacesContext fc;
 	
 	private Director d;
 	
@@ -24,7 +30,7 @@ public class DirectorBean {
 	
 	@PostConstruct
 	void init() {
-		this.d= new Director();
+		d = new Director();
 		
 	}
     /**
@@ -59,19 +65,29 @@ public class DirectorBean {
 	 * 
 	 * @return
 	 */
-	private String guardar() {
-		on.guardar(d);
+	public String guardar() {
+		try {
+			System.out.println("entroo");
+			//on.guardar(d);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(null, "error " + e.getMessage());
+		}
+		
 		return null;
 	}
 	/**
 	 * 
 	 * @return
 	 */
-	private String buscar() {
+	public String buscar() {
 		int val = d.getId();
 		d=on.read(val);
 		return null;
 		
+	}
+	
+	public void validar() {
+		System.out.println("entroo");
 	}
 
 }

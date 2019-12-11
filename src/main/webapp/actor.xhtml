@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+	  xmlns:p="http://primefaces.org/ui">
+	  
+<h:head>
+ <link href="/resources/css/style.css" rel="stylesheet" type="text/css" />
+</h:head> 
+<body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="body">
+
+<h:form enctype="multipart/form-data">
+
+	<p:panelGrid columns="2" border="10" 
+	style="margin: 0 auto;" cellpadding = "8" cellspacing = "3">	
+			
+		<p:outputLabel value="NOMBRES" />
+		<p:inputText value="#{autorBean.ac.nombres}" id="txtnombre"/>
+		
+		<p:outputLabel value="APELLIDO" />
+		<p:inputText value="#{autorBean.ac.apellidos}" id="txtapellido"/>
+		
+		<p:outputLabel value="NACIONALIDAD" />
+		<p:inputText value="#{autorBean.ac.nacionalidad}" id="txtnacionalidad"/>
+		
+		<p:outputLabel value="FECHA NACIMIENTO" />
+		<p:inputText value="#{autorBean.ac.fechaN}" id="txtfechaNac"/>	
+	
+	</p:panelGrid>
+
+
+</h:form>
+ <div align="center">
+         <p:commandButton value="INGRESAR ACTOR" action="#{autorBean.guardar()}"/>
+          <p:commandButton value="LISTAR USUARIOS" action="#{autorBean.guardar()}"/>
+      </div>
+
+</ui:define>
+
+</ui:composition>
+
+
+
+</body> 
+</html>

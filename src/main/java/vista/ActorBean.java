@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import modelo.Actor;
 import negocio.ActorON;
 
+<<<<<<< HEAD:src/main/java/vista/ActorBean.java
 /**
  * 
  * @author Ruben
@@ -23,12 +24,21 @@ import negocio.ActorON;
 public class ActorBean {
 
 	// PropietiesBean
+=======
+@ManagedBean
+
+public class AutorBean {
+	
+	//PropietiesBean
+>>>>>>> 1ca6bd06177bf6f4b52fd1bd087e6caec5ac2fa5:src/main/java/vista/AutorBean.java
 	private String nombre;
+	
 	private Actor ac;
 	private int id;
 	private List<Actor> actores;
 	@Inject
 	private ActorON on;
+<<<<<<< HEAD:src/main/java/vista/ActorBean.java
 
 	/**
 	 * 
@@ -90,6 +100,29 @@ public class ActorBean {
 	 * 
 	 * @param actores
 	 */
+=======
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Actor getAc() {
+		return ac;
+	}
+	public void setAc(Actor ac) {
+		this.ac = ac;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public List<Actor> getActores() {
+		return actores;
+	}
+>>>>>>> 1ca6bd06177bf6f4b52fd1bd087e6caec5ac2fa5:src/main/java/vista/AutorBean.java
 	public void setActores(List<Actor> actores) {
 		this.actores = actores;
 	}
@@ -102,8 +135,7 @@ public class ActorBean {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * Metodo de guardar Actor
 	 */
 	public String guardar() {
 		System.out.println("act " + ac);
@@ -118,10 +150,13 @@ public class ActorBean {
 
 	/**
 	 * Metodo de editar Actor
+<<<<<<< HEAD:src/main/java/vista/ActorBean.java
 	 * 
 	 * @throws Exception
+=======
+>>>>>>> 1ca6bd06177bf6f4b52fd1bd087e6caec5ac2fa5:src/main/java/vista/AutorBean.java
 	 */
-	public String editar(int codigo) throws Exception {
+	public String editar(int codigo) {
 		System.out.println("codigo editar " + codigo);
 		ac = on.getActor(codigo);
 		System.out.println(ac.toString());
@@ -160,5 +195,10 @@ public class ActorBean {
 //			
 //		}
 //	}
+<<<<<<< HEAD:src/main/java/vista/ActorBean.java
+=======
+	
+	
+>>>>>>> 1ca6bd06177bf6f4b52fd1bd087e6caec5ac2fa5:src/main/java/vista/AutorBean.java
 
 }
