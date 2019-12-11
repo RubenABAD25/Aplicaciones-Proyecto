@@ -5,7 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @Entity
 public class Usuario {
 	@Id
@@ -20,29 +24,62 @@ public class Usuario {
 	@Column(name = "usr_pass")
 	private String password;
 	@NotNull
-	@Column(name = "usr_pass")
+	@Column(name = "usr_estado")
 	private boolean admin;
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getUsername() {
 		return username;
 	}
+	/**
+	 * 
+	 * @param username
+	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getPassword() {
 		return password;
 	}
+	/**
+	 * 
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean isAdmin() {
 		return admin;
 	}
+	/**
+	 * 
+	 * @param admin
+	 */
 	public void setAdmin(boolean admin) {
 		this.admin = admin;
 	}

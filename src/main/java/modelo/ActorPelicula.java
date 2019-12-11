@@ -6,6 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @Entity
 public class ActorPelicula {
 	@Id
@@ -19,22 +24,45 @@ public class ActorPelicula {
 	@OneToOne
 	@JoinColumn(name = "pelicula_id")
 	private Pelicula pelicula;
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Actor getActor() {
 		return actor;
 	}
+	/**
+	 * 
+	 * @param actor
+	 */
 	public void setActor(Actor actor) {
 		this.actor = actor;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Pelicula getPelicula() {
 		return pelicula;
 	}
+	/**
+	 * 
+	 * @param pelicula
+	 */
 	public void setPelicula(Pelicula pelicula) {
 		this.pelicula = pelicula;
 	}

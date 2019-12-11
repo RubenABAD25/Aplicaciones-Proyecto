@@ -6,7 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
-
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @Entity
 public class DirectorPelicula {
 	@Id
@@ -19,21 +23,46 @@ public class DirectorPelicula {
 	@OneToOne
 	@JoinColumn(name = "pelc_id")
 	private Pelicula pelicula;
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Director getDirector() {
 		return director;
 	}
+	/**
+	 * 
+	 * @param director
+	 */
 	public void setDirector(Director director) {
 		this.director = director;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Pelicula getPelicula() {
 		return pelicula;
 	}
+	/**
+	 * 
+	 * @param pelicula
+	 */
 	public void setPelicula(Pelicula pelicula) {
 		this.pelicula = pelicula;
 	}

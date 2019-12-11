@@ -11,7 +11,11 @@ import javax.inject.Inject;
 
 import modelo.Actor;
 import negocio.ActorON;
-
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @ManagedBean
 
 public class AutorBean {
@@ -23,27 +27,59 @@ public class AutorBean {
 	private List<Actor>actores;
 	@Inject
 	private ActorON on;
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+	/**
+	 * 
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Actor getAc() {
 		return ac;
 	}
+	/**
+	 * 
+	 * @param ac
+	 */
 	public void setAc(Actor ac) {
 		this.ac = ac;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Actor> getActores() {
 		return actores;
 	}
+	/**
+	 * 
+	 * @param actores
+	 */
 	public void setActores(List<Actor> actores) {
 		this.actores = actores;
 	}
@@ -54,7 +90,8 @@ public class AutorBean {
 	}
 
 	/**
-	 * Metodo de guardar Actor
+	 * 
+	 * @return
 	 */
 	public String guardar() {
 		try {

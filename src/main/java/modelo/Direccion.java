@@ -6,7 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @Entity
 public class Direccion {
 	@Id
@@ -24,33 +28,73 @@ public class Direccion {
 	@JoinColumn(name = "direccion_id")
 	private Cliente cliente;
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getCalles() {
 		return calles;
 	}
+	/**
+	 * 
+	 * @param calles
+	 */
 	public void setCalles(String calles) {
 		this.calles = calles;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNumero() {
 		return numero;
 	}
+	/**
+	 * 
+	 * @param numero
+	 */
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getCiudad() {
 		return ciudad;
 	}
+	/**
+	 * 
+	 * @param ciudad
+	 */
 	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Cliente getCliente() {
 		return cliente;
 	}
+	/**
+	 * 
+	 * @param cliente
+	 */
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
