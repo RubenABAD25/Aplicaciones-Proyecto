@@ -13,7 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @Entity
 public class Director {
 	@Id
@@ -44,86 +48,138 @@ public class Director {
 	@JoinColumn(name = "director_id")
 	private List<DirectorPelicula>dpelicas;
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
 
-
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 
 	public String getNombres() {
 		return nombres;
 	}
 
-
+	/**
+	 * 
+	 * @param nombres
+	 */
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 
 	public String getApellidos() {
 		return apellidos;
 	}
-
+	/**
+	 * 
+	 * @param apellidos
+	 */
 
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 
 	public String getNacionalidad() {
 		return nacionalidad;
 	}
 
-
+	/**
+	 * 
+	 * @param nacionalidad
+	 */
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 	public String getCedula() {
 		return cedula;
 	}
 
-
+	/**
+	 * 
+	 * @param cedula
+	 */
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 
 	public String getFecha() {
 		return fecha;
 	}
-
+	/**
+	 * 
+	 * @param fecha
+	 */
 
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 
 	public int getNumero() {
 		return numero;
 	}
 
-
+	/**
+	 * 
+	 * @param numero
+	 */
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
 
-
+	/**
+	 * 
+	 * @return
+	 */
 	public List<DirectorPelicula> getDpelicas() {
 		return dpelicas;
 	}
 
-
+	/**
+	 * 
+	 * @param dpelicas
+	 */
 	public void setDpelicas(List<DirectorPelicula> dpelicas) {
 		this.dpelicas = dpelicas;
 	}
-
+	/**
+	 * 
+	 * @param dp
+	 * Metodo el cual se encargara de agregar en la listaDP
+	 */
 
 	public void agregarDirectorPelicula(DirectorPelicula dp)
 	{

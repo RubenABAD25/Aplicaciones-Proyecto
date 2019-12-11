@@ -14,7 +14,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @Entity
 public class Pelicula {
 	@Id
@@ -33,7 +37,7 @@ public class Pelicula {
 	private String portada;
 	@NotNull
 	@Column(name = "pel_anioPublicacion")
-	private int añoPublicacion;
+	private int aniooPublicacion;
 	@NotNull
 	@Column(name = "pel_precio")
 	private double precio;
@@ -51,61 +55,138 @@ public class Pelicula {
 	private List<DirectorPelicula>dpelicas;
 	
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public int getId() {
 		return id;
 	}
+	/**
+	 * 
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getSinopsis() {
 		return sinopsis;
 	}
+	/**
+	 * 
+	 * @param sinopsis
+	 */
 	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getNombre() {
 		return nombre;
 	}
+	/**
+	 * 
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getPortada() {
 		return portada;
 	}
+	/**
+	 * 
+	 * @param portada
+	 */
 	public void setPortada(String portada) {
 		this.portada = portada;
 	}
-	public int getAñoPublicacion() {
-		return añoPublicacion;
+	/**
+	 * 
+	 * @return
+	 */
+	public int getAniooPublicacion() {
+		return aniooPublicacion;
 	}
-	public void setAñoPublicacion(int añoPublicacion) {
-		this.añoPublicacion = añoPublicacion;
+	/**
+	 * 
+	 * @param aniooPublicacion
+	 */
+	public void setAniooPublicacion(int aniooPublicacion) {
+		this.aniooPublicacion = aniooPublicacion;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public double getPrecio() {
 		return precio;
 	}
+	/**
+	 * 
+	 * @param precio
+	 */
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public List<ActorPelicula> getApeliculas() {
 		return apeliculas;
 	}
+	/**
+	 * 
+	 * @param apeliculas
+	 */
 	public void setApeliculas(List<ActorPelicula> apeliculas) {
 		this.apeliculas = apeliculas;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public Categoria getUnaCategoria() {
 		return unaCategoria;
 	}
+	/**
+	 * 
+	 * @param unaCategoria
+	 */
 	public void setUnaCategoria(Categoria unaCategoria) {
 		this.unaCategoria = unaCategoria;
 	}
+	/**
+	 * 
+	 * 
+	 * 
+	 * @return
+	 */
 	public List<DirectorPelicula> getDpelicas() {
 		return dpelicas;
 	}
+	/**
+	 * 
+	 * @param dpelicas
+	 */
 	public void setDpelicas(List<DirectorPelicula> dpelicas) {
 		this.dpelicas = dpelicas;
 	}
+	/**
+	 * 
+	 * @param ap
+	 */
 	public void agregarActorPelicula(ActorPelicula ap)
 	{
 		if(ap == null) {
@@ -113,6 +194,11 @@ public class Pelicula {
 		}
 		this.apeliculas.add(ap);
 	}
+	/**
+	 * 
+	 * @param dp
+	 * Metodo se encargara de crear o almacenar dentro de la lista
+	 */
 	public void agregarDirectorPelicula(DirectorPelicula dp)
 	{
 		if(dp == null) {
@@ -123,7 +209,8 @@ public class Pelicula {
 	@Override
 	public String toString() {
 		return "Pelicula [id=" + id + ", sinopsis=" + sinopsis + ", nombre=" + nombre + ", portada=" + portada
-				+ ", añoPublicacion=" + añoPublicacion + ", precio=" + precio + ", apeliculas=" + apeliculas
+				+ ", aniooPublicacion=" + aniooPublicacion + ", precio=" + precio + ", apeliculas=" + apeliculas
 				+ ", unaCategoria=" + unaCategoria + ", dpelicas=" + dpelicas + "]";
 	}
+	
 }

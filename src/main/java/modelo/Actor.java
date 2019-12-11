@@ -13,7 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+/**
+ * 
+ * @author Ruben
+ *
+ */
 @Entity
 public class Actor 
 {
@@ -38,10 +42,17 @@ public class Actor
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "actor_id")
 	private List<ActorPelicula> apeliculas;
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<ActorPelicula> getLista() {
 		return apeliculas;
 	}
+	/**
+	 * 
+	 * @param lista
+	 */
 	public void setLista(List<ActorPelicula> lista) {
 		this.apeliculas = lista;
 	}
@@ -121,6 +132,11 @@ public class Actor
 		return "Actor [id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", nacionalidad="
 				+ nacionalidad + ", fechaN=" + fechaN + ", apeliculas=" + apeliculas + "]";
 	}
+	/**
+	 * 
+	 * @param ap
+	 * En este metodo se procedera a agregarPelicula en la lista 
+	 */
 	public void agregarActorPelicula(ActorPelicula ap)
 	{
 		if(ap == null) {
