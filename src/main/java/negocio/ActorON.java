@@ -30,10 +30,14 @@ public class ActorON
 			
 		}
 		
-		public Actor getActor(int codigo) {
+		public Actor getActor(int codigo) throws Exception{
 			Actor aux = dao.read(codigo);
 			return aux;
 			
+		}
+		public void modificar(int id) throws Exception{
+			 Actor aux = dao.buscarActor(id);
+			dao.update(aux);
 		}
 
 }

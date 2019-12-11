@@ -67,8 +67,9 @@ public class AutorBean {
 	}
 	/**
 	 * Metodo de editar Actor
+	 * @throws Exception 
 	 */
-	public String editar(int codigo) {
+	public String editar(int codigo) throws Exception {
 		System.out.println("codigo editar " + codigo);
 		ac =on.getActor(codigo);
 		System.out.println(ac.toString());
@@ -92,19 +93,5 @@ public class AutorBean {
 		
 		return null;
 	}
-//	public void buscar() {
-//		if(id==0)
-//			return;
-//		System.out.println("codigo editar " + this.id);
-//		ac = on.getActor(this.id);
-//		
-//		if(ac == null) {
-//			ac = new Actor();
-//			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, 
-//					"Registro no existe", "InformaciÃ³n");
-//			//((FaceletContext) fc).addMessage(null, msg);
-//			
-//		}
-//	}
 
 }
