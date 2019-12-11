@@ -25,6 +25,9 @@ public class UsuarioON {
 	public void modificar(int id) {
 		udao.actualizarUsr(udao.buscarUsr(id));
 	}
+	public Usuario buscar(int id) {
+		return udao.buscarUsr(id);
+	}
 	
 
 }
