@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>
+ <link href="/resources/css/style.css" rel="stylesheet" type="text/css" />
+</h:head> 
+<body> 
+<ui:composition template="/template.xhtml">
+<ui:define name="body">
+
+<h:form enctype="multipart/form-data">
+
+	<p:panelGrid columns="3" border="10" 
+	style="margin: 0 auto;" cellpadding = "8" cellspacing = "3">	
+			
+		<p:outputLabel value="CEDULA" />
+		<p:inputText value="#{carreraBean.newCarrera.nombre}" id="txtnombre"/>
+		<p:message for="txtnombre" />
+		
+		<p:outputLabel value="NOMBRES" />
+		<p:inputText value="#{carreraBean.newCarrera.titulo}" id="txtitulo"/>
+		<p:message for="txtitulo" />
+		
+		<p:outputLabel value="APELLIDOS" />
+		<p:inputText value="#{carreraBean.newCarrera.modalidad}" id="txtmod"/>
+		<p:message for="txtmod" />
+		
+		<p:outputLabel value="USUARIO" />
+		<p:inputText value="#{carreraBean.newCarrera.duracion}" id="txtdu"/>
+		<p:message for="txtdu" />
+		
+		
+		<p:outputLabel value="CLAVE" />
+		<p:inputText value="#{carreraBean.newCarrera.descripcion}" id="txtdesc" />
+		<p:message for="txtdesc" />
+  
+		<p:outputLabel value="PREFERENCIA" />
+		<p:inputText value="#{carreraBean.newCarrera.imagen}" id="txtimagen" />
+		<p:message for="txtemail" />		
+				
+		<h:inputHidden value="#{carreraBean.edit}" />
+		<h:commandButton action="#{carreraBean.guardar()}" value="Guardar USUARIO" />
+		
+	
+	</p:panelGrid>
+
+
+</h:form>
+ <div align="center">
+         <p:commandButton value="INGRESAR USUARIOS" action="list-carreras"/>
+          <p:commandButton value="LISTAR USUARIOS" action="#{carreraBean.guardar()}"/>
+      </div>
+
+</ui:define>
+
+</ui:composition>
+
+
+
+</body> 
+</html>
