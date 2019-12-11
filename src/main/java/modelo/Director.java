@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -14,7 +15,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "tb_Director")
 public class Director {
 	@Id
 	@GeneratedValue
@@ -39,126 +39,105 @@ public class Director {
 	@NotNull
 	@Column(name = "dir_numero")
 	private int numero;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "dir_id")
-	private List<Pelicula>peliculas;
 	
-	/**
-	 * 
-	 * @return
-	 */
-	public List<Pelicula> getPeliculas() {
-		return peliculas;
-	}
-	/**
-	 * 
-	 * @param peliculas
-	 */
-	public void setPeliculas(List<Pelicula> peliculas) {
-		this.peliculas = peliculas;
-	}
-	/**
-	 * 
-	 * @return
-	 */
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "director_id")
+	private List<DirectorPelicula>dpelicas;
+	
+	
 	public int getId() {
 		return id;
 	}
-	/**
-	 * 
-	 * @param id
-	 */
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public String getNombres() {
 		return nombres;
 	}
-	/**
-	 * 
-	 * @param nombres
-	 */
+
+
 	public void setNombres(String nombres) {
 		this.nombres = nombres;
 	}
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public String getApellidos() {
 		return apellidos;
 	}
-	/**
-	 * 
-	 * @param apellidos
-	 */
+
+
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public String getNacionalidad() {
 		return nacionalidad;
 	}
-	/**
-	 * 
-	 * @param nacionalidad
-	 */
+
+
 	public void setNacionalidad(String nacionalidad) {
 		this.nacionalidad = nacionalidad;
 	}
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public String getCedula() {
 		return cedula;
 	}
-	/**
-	 * 
-	 * @param cedula
-	 */
+
+
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
 	}
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public String getFecha() {
 		return fecha;
 	}
-	/**
-	 * 
-	 * @param fecha
-	 */
+
+
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-	/**
-	 * 
-	 * @return
-	 */
+
+
 	public int getNumero() {
 		return numero;
 	}
-	/**
-	 * 
-	 * @param numero
-	 */
+
+
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
-	//Mostramos la informacion del objeto Director
+
+
+	public List<DirectorPelicula> getDpelicas() {
+		return dpelicas;
+	}
+
+
+	public void setDpelicas(List<DirectorPelicula> dpelicas) {
+		this.dpelicas = dpelicas;
+	}
+
+
+	public void agregarDirectorPelicula(DirectorPelicula dp)
+	{
+		if(dp == null) {
+			dpelicas= new ArrayList<DirectorPelicula>();
+		}
+		this.dpelicas.add(dp);
+	}
+
 	@Override
 	public String toString() {
 		return "Director [id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", nacionalidad="
-				+ nacionalidad + ", cedula=" + cedula + ", fecha=" + fecha + ", numero=" + numero + "]";
+				+ nacionalidad + ", cedula=" + cedula + ", fecha=" + fecha + ", numero=" + numero + ", dpelicas="
+				+ dpelicas + "]";
 	}
+	
 }

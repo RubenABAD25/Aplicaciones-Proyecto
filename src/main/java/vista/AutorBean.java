@@ -70,8 +70,9 @@ public class AutorBean {
 	}
 	/**
 	 * Metodo de editar Actor
+	 * @throws Exception 
 	 */
-	public String editar(int codigo) {
+	public String editar(int codigo) throws Exception {
 		System.out.println("codigo editar " + codigo);
 		ac =on.getActor(codigo);
 		System.out.println(ac.toString());
@@ -95,6 +96,7 @@ public class AutorBean {
 		
 		return null;
 	}
+<<<<<<< HEAD
 //	public void buscar() {
 //		if(id==0)
 //			return;
@@ -111,5 +113,7 @@ public class AutorBean {
 //	}
 	
 	
+=======
+>>>>>>> ruben
 
 }

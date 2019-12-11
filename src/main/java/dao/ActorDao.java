@@ -8,19 +8,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import modelo.Actor;
+import modelo.Categoria;
 
 public class ActorDao 
 {
 	@Inject
 	private EntityManager em;
-	public void save(Actor a) {
-		if(this.read(a.getId())!=null)
-			this.update(a);
-		else
-			this.create(a);
-		
-	}
-
 	
 	public void create(Actor a) {
 		System.out.println("dao " + a);
@@ -47,10 +40,14 @@ public class ActorDao
 		Query q = em.createQuery(jpql, Actor.class);
 		
 		List<Actor> actores = q.getResultList();
+		for (Actor actor : actores) {
+			actor.getLista().size();
+			
+		}
 		return actores;
 	}
 	
-	public List<Actor> getPersonasPorNombre(String filtroBusqued){
+	public List<Actor> getActoresPorFiltro(String filtroBusqued){
 		String jpql = "SELECT p FROM Actor p "
 					+ "	WHERE p.nombres LIKE :filtro ";
 		
@@ -58,7 +55,19 @@ public class ActorDao
 		q.setParameter("filtro", "%"+filtroBusqued+"%");
 		
 		List<Actor> actores = q.getResultList();
+		for (Actor actor : actores) {
+			actor.getLista().size();
+			
+		}
 		return actores;
+	}
+	public Actor buscarActor(int cod) {
+		String jpql = "SELECT a FROM Actor a JOIN FETCH a where a.id =:codigo";
+		Query query= em.createQuery(jpql,Actor.class);
+		query.setParameter("codigo", cod);
+		Actor act =(Actor)query.getSingleResult();
+
+		return act;
 	}
 
 }

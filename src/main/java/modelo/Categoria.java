@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 @Entity
-@Table(name = "tb_Categoria")
 public class Categoria {
 	@Id
 	@GeneratedValue
@@ -27,8 +27,8 @@ public class Categoria {
 	@NotNull
 	@Column(name = "cat_nombre")
 	private String nombre;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "cat_id")
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "categoria_id")
 	List<Pelicula>peliculas;
 	/**
 	 * 
@@ -90,5 +90,12 @@ public class Categoria {
 	@Override
 	public String toString() {
 		return "Categoria [id=" + id + ", Fecha=" + Fecha + ", nombre=" + nombre + "]";
+	}
+	public void agregarPeliculas(Pelicula pe)
+	{
+		if(pe == null) {
+			peliculas= new ArrayList<Pelicula>();
+		}
+		this.peliculas.add(pe);
 	}
 }
