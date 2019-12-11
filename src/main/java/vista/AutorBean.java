@@ -19,6 +19,12 @@ public class AutorBean {
 	
 	//PropietiesBean
 	private String nombre;
+	
+	@PostConstruct
+	public void init() {
+		ac = new Actor();
+	}
+	
 	private Actor ac;
 	private int id;
 	private List<Actor>actores;
