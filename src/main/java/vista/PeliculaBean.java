@@ -26,11 +26,33 @@ public class PeliculaBean
 		this.p = p;
 	}
 	
+	
+	public List<Pelicula> getPelis() {
+		return pelis;
+	}
+
+	public void setPelis(List<Pelicula> pelis) {
+		this.pelis = pelis;
+	}
+
 	@PostConstruct
 	void init() {
 		this.p= new Pelicula();
+		this.listar();
+	}
+	public String guardar() {
+		pon.guaradar(p);
+		return null;
 		
-		
+	}	
+	public String buscar() {
+		int val =p.getId();
+		p=pon.buscar(val);
+		return null;
+	}
+	public String listar() {
+		this.pelis=pon.getPelicula();
+		return null;
 	}
 
 }
