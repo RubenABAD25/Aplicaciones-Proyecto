@@ -18,30 +18,29 @@
 	style="margin: 0 auto;" cellpadding = "8" cellspacing = "3">	
 			
 		<p:outputLabel value="NOMBRES" />
-		<p:inputText value="#{autorBean.ac.nombres}" id="txtnombre"/>
+		<p:inputText value="#{directorBean.d.nombres}" id="txtnombre"/>
 		
 		<p:outputLabel value="APELLIDOS" />
-		<p:inputText value="#{autorBean.ac.apellidos}" id="txtapellido"/>
+		<p:inputText value="#{directorBean.d.apellidos}" id="txtapellido"/>
 		
 		<p:outputLabel value="NACIONALIDAD" />
-		<p:inputText value="#{autorBean.ac.nacionalidad}" id="txtnacionalidad"/>
+		<p:inputText value="#{directorBean.d.nacionalidad}" id="txtnacionalidad"/>
 		
 		<p:outputLabel value="CEDULA" />
-		<p:inputText value="#{autorBean.ac.fechaN}" id="txtcedula"/>	
+		<p:inputText value="#{directorBean.d.cedula}" id="txtcedula"/>	
 	
 		<p:outputLabel value="FECHA" />
-		<p:inputText value="#{autorBean.ac.fechaN}" id="txtfecha"/>
+		<p:inputText value="#{directorBean.d.fecha}" id="txtfecha"/>
 		
 		<p:outputLabel value="NUMERO" />
-		<p:inputText value="#{autorBean.ac.fechaN}" id="txtnumero"/>
+		<p:inputText value="#{directorBean.d.numero}" id="txtnumero"/>
+
 		
 	</p:panelGrid>
 
-
-</h:form>
- <div align="center">
-         <p:commandButton value="INGRESAR ACTOR" action="#{autorBean.guardar()}"/>
-          <p:commandButton value="LISTAR USUARIOS" action="#{autorBean.guardar()}"/>
+    </h:form>
+      <div align="center">
+         <p:commandButton value="INGRESAR DIRECTOR" action="#{directorBean.guardar()}"/>
       </div>
 
 </ui:define>
