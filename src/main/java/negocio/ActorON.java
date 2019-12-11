@@ -14,12 +14,7 @@ public class ActorON
 	@Inject
 	private ActorDao dao;
 	public void guardar(Actor a) throws Exception{
-			
-			if(a.getNombres().length()<5)
-				throw new Exception("Dimension corta");
-			
-			
-			dao.save(a);		
+			dao.create(a);		
 		}
 		
 		public List<Actor> getListadoActores(){

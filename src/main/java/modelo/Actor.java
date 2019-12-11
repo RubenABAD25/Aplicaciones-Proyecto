@@ -1,14 +1,20 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "tb_Actor")
 public class Actor 
 {
 	@Id
@@ -23,11 +29,22 @@ public class Actor
 	@Column(name = "ac_apellidos")
 	private String apellidos;
 	@NotNull
-	@Column(name = "tb_nacionalidad")
+	@Column(name = "ac_nacionalidad")
 	private String nacionalidad;
 	@NotNull
-	@Column(name = "tb_fechaN")
+	@Column(name = "ac_fechaN")
 	private String fechaN;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "actor_id")
+	private List<ActorPelicula> apeliculas;
+	
+	public List<ActorPelicula> getLista() {
+		return apeliculas;
+	}
+	public void setLista(List<ActorPelicula> lista) {
+		this.apeliculas = lista;
+	}
 	/**
 	 * 
 	 * @return
@@ -99,11 +116,16 @@ public class Actor
 		this.fechaN = fechaN;
 	}
 	//Mostramos la informacion del objeto Actor
-
 	@Override
 	public String toString() {
 		return "Actor [id=" + id + ", nombres=" + nombres + ", apellidos=" + apellidos + ", nacionalidad="
-				+ nacionalidad + ", fechaN=" + fechaN + "]";
+				+ nacionalidad + ", fechaN=" + fechaN + ", apeliculas=" + apeliculas + "]";
 	}
-
+	public void agregarActorPelicula(ActorPelicula ap)
+	{
+		if(ap == null) {
+			apeliculas= new ArrayList<ActorPelicula>();
+		}
+		this.apeliculas.add(ap);
+	}
 }

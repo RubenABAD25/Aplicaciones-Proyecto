@@ -11,15 +11,7 @@ import modelo.Categoria;
 @Stateless
 public class CategoriaDao {
  private EntityManager cm;
- public void save(Categoria c) {
-		if(this.read(c.getId())!=null)
-			this.update(c);
-		else
-			this.create(c);
-		
-	}
 
-	
 	public void create(Categoria c) {
 		cm.persist(c);
 	}
@@ -37,17 +29,16 @@ public class CategoriaDao {
 		Categoria c = read(id);
 		cm.remove(c);
 	}
-	
-	public List<Categoria> getCategorias(){
-		String jpql = "SELECT p FROM Categoria p ";
+	public Categoria buscarCategorias(int id) {
+		String jpql = "SELECT ca FROM Categoria ca JOIN FETCH ca where ca.id =:codigo";
+		Query query= cm.createQuery(jpql,Categoria.class);
+		query.setParameter("codigo", id);
+		Categoria cate =(Categoria)query.getSingleResult();
 		
-		Query q = cm.createQuery(jpql, Categoria.class);
-		
-		List<Categoria> categorias = q.getResultList();
-		return categorias;
+		return cate;
 	}
-	
-	public List<Categoria> getPersonasPorNombre(String filtroBusqued){
+		
+	public List<Categoria> getCategoriasParam(String filtroBusqued){
 		String jpql = "SELECT p FROM Categoria p "
 					+ "	WHERE p.nombre LIKE :filtro ";
 		
@@ -56,6 +47,15 @@ public class CategoriaDao {
 		
 		List<Categoria> categoria = q.getResultList();
 		return categoria;
+	}
+	public List<Categoria>getCategorias(){
+		String jpgl = "select ca from Categoria ca";
+		Query query = cm.createQuery(jpgl,Categoria.class);
+		List<Categoria> cate = query.getResultList();
+		for (Categoria categoria : cate) {
+			categoria.getPeliculas().size();
+		}
+		return cate;
 	}
 
 }

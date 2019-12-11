@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,11 +11,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "tb_Pelicula")
 public class Pelicula {
 	@Id
 	@GeneratedValue
@@ -36,113 +37,93 @@ public class Pelicula {
 	@NotNull
 	@Column(name = "pel_precio")
 	private double precio;
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "pel_id")
-	private List<Actor>actores;
-	/**
-	 * 
-	 * @return
-	 */
-	public List<Actor> getActores() {
-		return actores;
-	}
-	/**
-	 * 
-	 * @param actores
-	 */
-	public void setActores(List<Actor> actores) {
-		this.actores = actores;
-	}
-	/**
-	 * 
-	 * @return
-	 */
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "pelicula_id")
+	private List<ActorPelicula> apeliculas;
+	
+	@OneToOne
+	@JoinColumn(name = "categoria_id")
+	private Categoria unaCategoria;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "pelc_id")
+	private List<DirectorPelicula>dpelicas;
+	
+	
+	
 	public int getId() {
 		return id;
 	}
-	/**
-	 * 
-	 * @param id
-	 */
 	public void setId(int id) {
 		this.id = id;
 	}
-	/**
-	 * 
-	 * @return
-	 */
 	public String getSinopsis() {
 		return sinopsis;
 	}
-	/**
-	 * 
-	 * @param sinopsis
-	 */
 	public void setSinopsis(String sinopsis) {
 		this.sinopsis = sinopsis;
 	}
-	/**
-	 * 
-	 * @return
-	 */
 	public String getNombre() {
 		return nombre;
 	}
-	/**
-	 * 
-	 * @param nombre
-	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	/**
-	 * 
-	 * @return
-	 */
 	public String getPortada() {
 		return portada;
 	}
-	/**
-	 * 
-	 * @param portada
-	 */
 	public void setPortada(String portada) {
 		this.portada = portada;
 	}
-	/**
-	 * 
-	 * @return
-	 */
 	public int getAñoPublicacion() {
 		return añoPublicacion;
 	}
-	/**
-	 * 
-	 * @param añoPublicacion
-	 */
 	public void setAñoPublicacion(int añoPublicacion) {
 		this.añoPublicacion = añoPublicacion;
 	}
-	/**
-	 * 
-	 * @return
-	 */
 	public double getPrecio() {
 		return precio;
 	}
-	/**
-	 * 
-	 * @param precio
-	 */
 	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
-	//Mostramos la informacion del objeto Pelicula
+	public List<ActorPelicula> getApeliculas() {
+		return apeliculas;
+	}
+	public void setApeliculas(List<ActorPelicula> apeliculas) {
+		this.apeliculas = apeliculas;
+	}
+	public Categoria getUnaCategoria() {
+		return unaCategoria;
+	}
+	public void setUnaCategoria(Categoria unaCategoria) {
+		this.unaCategoria = unaCategoria;
+	}
+	public List<DirectorPelicula> getDpelicas() {
+		return dpelicas;
+	}
+	public void setDpelicas(List<DirectorPelicula> dpelicas) {
+		this.dpelicas = dpelicas;
+	}
+	public void agregarActorPelicula(ActorPelicula ap)
+	{
+		if(ap == null) {
+			apeliculas= new ArrayList<ActorPelicula>();
+		}
+		this.apeliculas.add(ap);
+	}
+	public void agregarDirectorPelicula(DirectorPelicula dp)
+	{
+		if(dp == null) {
+			dpelicas= new ArrayList<DirectorPelicula>();
+		}
+		this.dpelicas.add(dp);
+	}
 	@Override
 	public String toString() {
 		return "Pelicula [id=" + id + ", sinopsis=" + sinopsis + ", nombre=" + nombre + ", portada=" + portada
-				+ ", añoPublicacion=" + añoPublicacion + ", precio=" + precio + "]";
+				+ ", añoPublicacion=" + añoPublicacion + ", precio=" + precio + ", apeliculas=" + apeliculas
+				+ ", unaCategoria=" + unaCategoria + ", dpelicas=" + dpelicas + "]";
 	}
-	
-	
 }
