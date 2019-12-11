@@ -12,7 +12,7 @@ public class ActorPeliculaDao {
 	@Inject
 	private EntityManager em;
 	
-	public void create (ActorDao ap) {
+	public void create (ActorPelicula ap) {
 		em.persist(ap);
 	}
 	public ActorPelicula buscar(int cod) {
@@ -26,7 +26,7 @@ public class ActorPeliculaDao {
 		ActorPelicula urs =(ActorPelicula)query.getSingleResult();
 		return urs;
 	}
-	public List<ActorPelicula> getActorPelicula(){
+	public List<ActorPelicula> getActorPeliculaList(){
 		String jpql = "SELECT ap FROM ActorPelicula ap ";
 		
 		Query q = em.createQuery(jpql, ActorPelicula.class);

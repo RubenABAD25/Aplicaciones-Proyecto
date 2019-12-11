@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+<h:form>
+<h:outputLabel value="Actor:" />
+		<h:selectOneMenu id="cbxActores" value="#{actorPeliculaBean.actor}">
+		<f:selectItems value="#{actorPeliculaBean.actores}" 
+						var="act"
+						itemLabel="#{act.nombres}"
+						itemValue="#{act}"/>
+		</h:selectOneMenu><br/>
+		<h:outputLabel value="Peliculas" />
+		<h:selectOneMenu id="cbxActores" value="#{actorPeliculaBean.pelicula}">
+		<f:selectItems value="#{actorPeliculaBean.peliculas}" 
+						var="pel"
+						itemLabel="#{pel.nombre}"
+						itemValue="#{pel}"/>
+		</h:selectOneMenu><br/>
+		
+	<h:commandButton action="#{actorBean.guardar()}" value="Registrar" />	
+</h:form>
+</body> 
+</html>

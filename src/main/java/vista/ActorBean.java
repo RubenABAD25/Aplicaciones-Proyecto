@@ -18,7 +18,7 @@ import negocio.ActorON;
  */
 @ManagedBean
 
-public class AutorBean {
+public class ActorBean {
 	
 	//PropietiesBean
 	private String nombre;
