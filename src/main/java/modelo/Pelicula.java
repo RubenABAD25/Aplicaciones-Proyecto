@@ -37,7 +37,7 @@ public class Pelicula {
 	private String portada;
 	@NotNull
 	@Column(name = "pel_anioPublicacion")
-	private int añoPublicacion;
+	private int aniooPublicacion;
 	@NotNull
 	@Column(name = "pel_precio")
 	private double precio;
@@ -115,15 +115,15 @@ public class Pelicula {
 	 * 
 	 * @return
 	 */
-	public int getAñoPublicacion() {
-		return añoPublicacion;
+	public int getAniooPublicacion() {
+		return aniooPublicacion;
 	}
 	/**
 	 * 
-	 * @param añoPublicacion
+	 * @param aniooPublicacion
 	 */
-	public void setAñoPublicacion(int añoPublicacion) {
-		this.añoPublicacion = añoPublicacion;
+	public void setAniooPublicacion(int aniooPublicacion) {
+		this.aniooPublicacion = aniooPublicacion;
 	}
 	/**
 	 * 
@@ -209,7 +209,8 @@ public class Pelicula {
 	@Override
 	public String toString() {
 		return "Pelicula [id=" + id + ", sinopsis=" + sinopsis + ", nombre=" + nombre + ", portada=" + portada
-				+ ", añoPublicacion=" + añoPublicacion + ", precio=" + precio + ", apeliculas=" + apeliculas
+				+ ", aniooPublicacion=" + aniooPublicacion + ", precio=" + precio + ", apeliculas=" + apeliculas
 				+ ", unaCategoria=" + unaCategoria + ", dpelicas=" + dpelicas + "]";
 	}
+	
 }
