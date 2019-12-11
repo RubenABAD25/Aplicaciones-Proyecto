@@ -26,6 +26,9 @@ public class PeliculaON {
 	public List<Pelicula> getPelicula(){
 		return pdao.getPeliculas();
 	}
+	public Pelicula buscar(int id) {
+		return pdao.read(id);
+	}
 	
 
 }

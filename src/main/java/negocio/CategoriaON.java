@@ -27,5 +27,10 @@ public class CategoriaON {
 		Categoria aux = cdao.buscarCategorias(id);
 		cdao.update(aux);
 	}
+	public Categoria buscar (int id) {
+		
+		Categoria aux= cdao.buscarCategorias(id);
+		return aux;
+	}
 	
 }
