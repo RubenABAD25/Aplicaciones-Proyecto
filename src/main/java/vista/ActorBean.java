@@ -12,21 +12,24 @@ import javax.inject.Inject;
 
 import modelo.Actor;
 import negocio.ActorON;
+
 /**
  * 
  * @author Ruben
  *
  */
 @ManagedBean
-public class AutorBean {
-	
-	//PropietiesBean
+
+public class ActorBean {
+
+	// PropietiesBean
 	private String nombre;
 	private Actor ac;
 	private int id;
-	private List<Actor>actores;
+	private List<Actor> actores;
 	@Inject
 	private ActorON on;
+
 	/**
 	 * 
 	 * @return
@@ -34,6 +37,7 @@ public class AutorBean {
 	public String getNombre() {
 		return nombre;
 	}
+
 	/**
 	 * 
 	 * @param nombre
@@ -41,6 +45,7 @@ public class AutorBean {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -48,6 +53,7 @@ public class AutorBean {
 	public Actor getAc() {
 		return ac;
 	}
+
 	/**
 	 * 
 	 * @param ac
@@ -55,6 +61,7 @@ public class AutorBean {
 	public void setAc(Actor ac) {
 		this.ac = ac;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -62,6 +69,7 @@ public class AutorBean {
 	public int getId() {
 		return id;
 	}
+
 	/**
 	 * 
 	 * @param id
@@ -69,6 +77,7 @@ public class AutorBean {
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -76,6 +85,7 @@ public class AutorBean {
 	public List<Actor> getActores() {
 		return actores;
 	}
+
 	/**
 	 * 
 	 * @param actores
@@ -83,9 +93,10 @@ public class AutorBean {
 	public void setActores(List<Actor> actores) {
 		this.actores = actores;
 	}
+
 	@PostConstruct
 	public void init() {
-		ac= new Actor();
+		ac = new Actor();
 		System.out.println("init " + ac);
 		actores = on.getListadoActores();
 	}
@@ -104,32 +115,35 @@ public class AutorBean {
 		}
 		return null;
 	}
+
 	/**
 	 * Metodo de editar Actor
-	 * @throws Exception 
+	 * 
+	 * @throws Exception
 	 */
 	public String editar(int codigo) throws Exception {
 		System.out.println("codigo editar " + codigo);
-		ac =on.getActor(codigo);
+		ac = on.getActor(codigo);
 		System.out.println(ac.toString());
-		
-		return "personas?faces-redirect=true&id="+codigo;
+
+		return "personas?faces-redirect=true&id=" + codigo;
 	}
+
 	/**
 	 * Metodo de eliminar Actor
 	 */
 	public String borrar(int codigo) {
 		System.out.println("codigo borrar " + codigo);
-		
+
 		try {
 			on.borrar(codigo);
 			init();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("Error "+ e.getMessage());
+			System.out.println("Error " + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		return null;
 	}
 //	public void buscar() {
@@ -146,6 +160,5 @@ public class AutorBean {
 //			
 //		}
 //	}
-	
 
 }

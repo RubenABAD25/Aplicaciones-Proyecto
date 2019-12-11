@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+
 /**
  * 
  * @author Ruben
@@ -20,10 +21,19 @@ public class ActorPelicula {
 	@OneToOne
 	@JoinColumn(name = "actor_id")
 	private Actor actor;
-	
+
 	@OneToOne
 	@JoinColumn(name = "pelicula_id")
 	private Pelicula pelicula;
+
+	public ActorPelicula() {
+	}
+
+	public ActorPelicula(Actor actor, Pelicula pelicula) {
+		this.actor = actor;
+		this.pelicula = pelicula;
+	}
+
 	/**
 	 * 
 	 * @return
@@ -31,6 +41,7 @@ public class ActorPelicula {
 	public int getId() {
 		return id;
 	}
+
 	/**
 	 * 
 	 * @param id
@@ -38,6 +49,7 @@ public class ActorPelicula {
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -45,6 +57,7 @@ public class ActorPelicula {
 	public Actor getActor() {
 		return actor;
 	}
+
 	/**
 	 * 
 	 * @param actor
@@ -52,6 +65,7 @@ public class ActorPelicula {
 	public void setActor(Actor actor) {
 		this.actor = actor;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -59,6 +73,7 @@ public class ActorPelicula {
 	public Pelicula getPelicula() {
 		return pelicula;
 	}
+
 	/**
 	 * 
 	 * @param pelicula
@@ -66,11 +81,10 @@ public class ActorPelicula {
 	public void setPelicula(Pelicula pelicula) {
 		this.pelicula = pelicula;
 	}
+
 	@Override
 	public String toString() {
 		return "ActorPelicula [id=" + id + ", actor=" + actor + ", pelicula=" + pelicula + "]";
 	}
-
-	
 
 }
